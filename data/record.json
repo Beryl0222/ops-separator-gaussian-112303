@@ -1,0 +1,211 @@
+{
+  "variables": [
+    "board",
+    "arm-a",
+    "arm-b",
+    "independent"
+  ],
+  "factors": [
+    {
+      "id": "common",
+      "keys": [
+        "board"
+      ],
+      "precision": [
+        [
+          0.7
+        ]
+      ],
+      "information": [
+        0.1
+      ]
+    },
+    {
+      "id": "common",
+      "keys": [
+        "board"
+      ],
+      "precision": [
+        [
+          0.7
+        ]
+      ],
+      "information": [
+        0.1
+      ]
+    },
+    {
+      "id": "link-a",
+      "keys": [
+        "arm-a",
+        "board"
+      ],
+      "precision": [
+        [
+          2,
+          -2
+        ],
+        [
+          -2,
+          2
+        ]
+      ],
+      "information": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "link-b",
+      "keys": [
+        "board",
+        "arm-b"
+      ],
+      "precision": [
+        [
+          1,
+          -1
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      "information": [
+        0,
+        0
+      ]
+    },
+    {
+      "id": "ind",
+      "keys": [
+        "independent"
+      ],
+      "precision": [
+        [
+          3
+        ]
+      ],
+      "information": [
+        0.6
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "id": "a",
+      "keys": [
+        "arm-a",
+        "board"
+      ],
+      "values": [
+        1.2,
+        0.1
+      ],
+      "mask": [
+        1,
+        0
+      ],
+      "noise": [
+        [
+          0.2,
+          0.16
+        ],
+        [
+          0.16,
+          0.3
+        ]
+      ]
+    },
+    {
+      "id": "b",
+      "keys": [
+        "arm-b",
+        "board"
+      ],
+      "values": [
+        -0.25,
+        0.2
+      ],
+      "mask": [
+        1,
+        1
+      ],
+      "noise": [
+        [
+          0.3,
+          -0.09
+        ],
+        [
+          -0.09,
+          0.18
+        ]
+      ]
+    }
+  ],
+  "exact": [
+    {
+      "id": "pin-a",
+      "variable": "arm-a",
+      "value": 0.25
+    },
+    {
+      "id": "pin-b",
+      "variable": "arm-a",
+      "value": 0.4
+    }
+  ],
+  "operations": [
+    [
+      "add",
+      "a"
+    ],
+    [
+      "add",
+      "b"
+    ],
+    [
+      "remove",
+      "b"
+    ],
+    [
+      "remove",
+      "a"
+    ],
+    [
+      "remove_factor",
+      "common"
+    ],
+    [
+      "bind",
+      "pin-a"
+    ],
+    [
+      "bind",
+      "pin-b"
+    ]
+  ],
+  "queries": [
+    [
+      "arm-a",
+      "arm-b",
+      0.22
+    ],
+    [
+      "board",
+      "arm-b",
+      0.25
+    ],
+    [
+      "independent",
+      "independent",
+      0.4
+    ]
+  ],
+  "scale": {
+    "zones": 96,
+    "local_variables": 80,
+    "separators": 32,
+    "scratch_bytes": 33554432
+  }
+}
