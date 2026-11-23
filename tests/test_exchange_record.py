@@ -14,3 +14,5 @@ class ExchangeRecordTests(unittest.TestCase):
         self.assertTrue(record["exact"][0]["variable"] == record["exact"][1]["variable"] and record["exact"][0]["value"] != record["exact"][1]["value"])
         self.assertTrue(all(np.min(np.linalg.eigvalsh(f["precision"])) >= -1e-12 for f in record["factors"]))
         self.assertTrue(any(event == ["remove_factor", "common"] for event in record["operations"]) and all(np.allclose(np.sum(f["precision"], axis=1), 0) for f in record["factors"] if f["id"].startswith("link")))
+        self.assertTrue(record["factors"][0]["source"] == "board-lab" and record["factors"][0] == record["factors"][1])
+        self.assertTrue(all(event[0] == "add" for event in record["operations"][:record["reverse_reads"][0]["after_operations"]]))

@@ -18,7 +18,8 @@
       ],
       "information": [
         0.1
-      ]
+      ],
+      "source": "board-lab"
     },
     {
       "id": "common",
@@ -32,7 +33,8 @@
       ],
       "information": [
         0.1
-      ]
+      ],
+      "source": "board-lab"
     },
     {
       "id": "link-a",
@@ -53,7 +55,8 @@
       "information": [
         0,
         0
-      ]
+      ],
+      "source": "left-fixture"
     },
     {
       "id": "link-b",
@@ -74,7 +77,8 @@
       "information": [
         0,
         0
-      ]
+      ],
+      "source": "right-fixture"
     },
     {
       "id": "ind",
@@ -88,7 +92,8 @@
       ],
       "information": [
         0.6
-      ]
+      ],
+      "source": "spare-fixture"
     }
   ],
   "observations": [
@@ -207,5 +212,28 @@
     "local_variables": 80,
     "separators": 32,
     "scratch_bytes": 33554432
-  }
+  },
+  "reverse_reads": [
+    {
+      "after_operations": 2,
+      "query": [
+        "arm-a",
+        "arm-b"
+      ],
+      "mean_upstream": [
+        1.0,
+        -0.4
+      ],
+      "covariance_upstream": [
+        [
+          0.6,
+          0.2
+        ],
+        [
+          0.2,
+          0.0
+        ]
+      ]
+    }
+  ]
 }
